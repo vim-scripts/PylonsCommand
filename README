@@ -1,0 +1,47 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=2448
+
+Requirements: Linux(not tested on Windows), Pylons
+Description:
+This is plugin to invoke Pylons' commands from Vim
+
+A little theory now:
+Default Pylons project looks like this:
+
+       MyProject/
+               myproject/
+               myproject.egg-info/
+               data/
+               docs/
+               developement.ini
+               MANIFEST.in
+               README.txt
+               setup.cfg
+               setup.py
+               test.ini
+
+      Now, what is what?
+       g:PylonsProjectDir = path/to/MyProject/
+       g:PylonsProjectName = myproject/
+
+      To start using this plugin you have to 'open' Pylon project with:
+               :PylonsOpen path/to/MyProject/myproject/
+       if everything goes well you should see:
+               Project set: /absolute/path/to/MyProject/myproject
+
+       Now you can use following functions:
+       PylonsOpen <dir> : open another project, current (if any) will be lost
+       PylonsServer [start|stop|restart] : start, stop, restart paster server
+       PylonsCreate [project|controller|template]:
+               project : Create new project TODO: not implemented yet
+               controller : Create new controler. It will as you for name.
+               template : Create new template. It will as you for name.
+               Note: you can use:
+                      PylonsCreate template
+                       'Template: path/to/template.mako'
+                       ['Template: path/to/template will' work the same]
+               This will create template.mako in
+                               /absolute/path/to/MyProject/myproject/tempates/path/to/
+       PylonsPreview : this will open localhost:5000 with default browser (set in g:PylonsBrowser)
+
+ Notes:
+I know that code can be buggy. It's my first vim-script.
